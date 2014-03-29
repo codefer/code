@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dataTypeMenuitem">
+      <Property name="creationType">cn.indexter.gdky.domain.Menuitem</Property>
+      <PropertyDef name="mid">
+        <Property name="dataType">Long</Property>
+      </PropertyDef>
+      <PropertyDef name="pid">
+        <Property name="dataType">Long</Property>
+      </PropertyDef>
+      <PropertyDef name="name">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="isParent">
+        <Property name="dataType">Boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="icon">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="checked">
+        <Property name="dataType">Boolean</Property>
+      </PropertyDef>
+      <PropertyDef name="url">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="target">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View layout="hbox">
+    <DataSet id="dataSetMenuitem">
+      <Property name="dataType">[dataTypeMenuitem]</Property>
+      <Property name="dataProvider">menuitemActionPR#getAllMenuitem</Property>
+    </DataSet>
+    <DataTree>
+      <Property name="dataSet">dataSetMenuitem</Property>
+      <BindingConfigs>
+        <BindingConfig>
+          <Property name="labelProperty">name</Property>
+        </BindingConfig>
+      </BindingConfigs>
+    </DataTree>
+  </View>
+</ViewConfig>

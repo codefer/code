@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.indexter.gdky.domain">
+	<class name="User" table="users">
+		<id name="id" column="id" type="integer">
+			<generator class="identity" />
+		</id>
+		<property name="email" column="email" type="string" length="50" />
+		<property name="phone" column="phone" type="string" length="50" />
+		<property name="password" column="password" type="string" length="50" />
+		<property name="nickName" column="nickname" type="string" length="50" />
+		<property name="regDate" column="regdate" type="timestamp" update="false"/>
+		
+		<!-- 角色集合 -->
+<!-- 		<set name="roles" table="user_role_link" lazy="false">
+			<key column="userid" />
+			<many-to-many class="cn.indexter.gdky.domain.security.Role" column="roleid" />
+		</set> -->
+		
+		<set name="menuitems" table="user_menuitem">
+		  <key>
+		      <column name="id"></column>
+		  </key>
+		  <many-to-many class="Menuitem" column="mid"></many-to-many>
+		</set><!--
+		
+	  <set name="uuids" inverse="true">
+			<key column="uid" >
+			</key>
+			<one-to-many class="Answer" />
+		</set>-->
+	</class>	
+</hibernate-mapping>    
